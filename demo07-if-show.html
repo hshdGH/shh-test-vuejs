@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="show=!show">点击测试</button>
+        <h2 v-if="show">
+            hello vuejs.
+        </h2>
+        <ul>
+            <li v-for="(user, index) in users" v-if="user.age==35" style="background-color: pink;">
+               {{index}} - {{user.name}} - {{user.age}} - {{user.gender}}
+            </li>
+            <li  v-else style="background-color: lightblue;">
+                {{index}} - {{user.name}} - {{user.age}} - {{user.gender}}
+            </li>
+        </ul>
+
+        <hr>
+        <h2 v-show="show">
+            hello vuejs.show.
+        </h2>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+               show:true,
+               users:[
+                   {"name":"刘备", "age":38, "gender":"男"},
+                   {"name":"张飞", "age":35, "gender":"男"},
+                   {"name":"关羽", "age":34, "gender":"男"}
+               ],
+                fruit:{
+                    "name":"apple",
+                    "color":"red"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

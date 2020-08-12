@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="num++">增加</button>
+        <button @click="decrement">减少</button>
+        <h2>
+            num = {{num}}
+        </h2>
+
+        <hr><br>
+        事件冒泡测试：<br>
+        <div style="background-color: lightblue; width: 100px; height: 100px;" @click="print('div被点击了')">
+            <button @click.stop="print('点击button')">点击测试</button>
+        </div>
+
+        <br>
+        事件冒泡测试：<br>
+        <a href="http://wwww.baidu.com" @click.prevent="print('点击了超链接')">百度一下，你就知道</a>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                num: 1
+            },
+            methods: {
+                decrement(){
+                    this.num--;
+                },
+                print(str){
+                    console.log(str);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

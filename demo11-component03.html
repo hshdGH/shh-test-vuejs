@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-list :items="lessons"></my-list>
+    </div>
+    <script type="text/javascript">
+        const myList = {
+            template:`<ul>
+                <li v-for="item in items" :key="item.id">{{item.id}} - {{item.name}}</li>
+            </ul>`,
+            props: {
+                items: {
+                    type:Array,
+                    default:[]
+                }
+            }
+        };
+
+        // 全局注册
+        // Vue.component("counter", counter);
+
+        // 局部注册
+        var app = new Vue({
+            el: "#app",
+            data:{
+                msg:"父组件msg属性内容",
+                lessons:[
+                    {"id":1, "name":"java"},
+                    {"id":2, "name":"js"},
+                    {"id":3, "name":"vuejs"}
+                ]
+            },
+            components:{
+                myList
+            }
+        });
+    </script>
+</body>
+</html>

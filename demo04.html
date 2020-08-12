@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" value="vue" v-model="language">vue <br>
+        <input type="checkbox" value="node" v-model="language">node <br>
+        <input type="checkbox" value="java" v-model="language">java <br>
+        <h2>
+            选择了：{{language.join("、")}}
+        </h2>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: "#app",
+            data: {
+                language: []
+            }
+        });
+    </script>
+</body>
+</html>

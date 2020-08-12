@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter :title="msg"></counter>
+    </div>
+    <script type="text/javascript">
+        const counter = {
+            template:"<h2>{{title}}</h2>",
+            props:[
+                "title"
+            ]
+        };
+
+        // 全局注册
+        Vue.component("counter", counter);
+
+        // 局部注册
+        var app = new Vue({
+            el: "#app",
+            data:{
+                msg:"父组件msg属性数据内容。"
+            }
+        });
+    </script>
+</body>
+</html>
